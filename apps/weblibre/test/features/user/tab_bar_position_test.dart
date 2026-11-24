@@ -26,6 +26,7 @@ import 'package:weblibre/features/user/data/models/general_settings.dart';
 const phone = WindowSizeClass.compact;
 final smallTablet = WindowSizeClass.fromSize(const Size(700, 1000));
 final tablet = WindowSizeClass.fromSize(const Size(1280, 800));
+final dexWindow = WindowSizeClass.fromSize(const Size(1920, 1080));
 final landscapePhone = WindowSizeClass.fromSize(const Size(840, 390));
 
 GeneralSettings settingsWith({
@@ -56,13 +57,23 @@ void main() {
       expect(TabBarPositionSetting.auto.resolve(phone), TabBarPosition.bottom);
     });
 
-    test('auto is a side rail from medium width upwards', () {
-      expect(
-        TabBarPositionSetting.auto.resolve(smallTablet),
-        TabBarPosition.left,
-      );
-      expect(TabBarPositionSetting.auto.resolve(tablet), TabBarPosition.left);
-    });
+    test(
+      'auto uses a side rail on medium windows and top bar on desktop windows',
+      () {
+        expect(
+          TabBarPositionSetting.auto.resolve(smallTablet),
+          TabBarPosition.left,
+        );
+        expect(
+          TabBarPositionSetting.auto.resolve(tablet),
+          TabBarPosition.top,
+        );
+        expect(
+          TabBarPositionSetting.auto.resolve(dexWindow),
+          TabBarPosition.top,
+        );
+      },
+    );
 
     test('auto stays a bottom bar on a phone in landscape', () {
       expect(
@@ -80,7 +91,13 @@ void main() {
       };
 
       for (final MapEntry(key: setting, value: expected) in explicit.entries) {
-        for (final window in [phone, smallTablet, tablet, landscapePhone]) {
+        for (final window in [
+          phone,
+          smallTablet,
+          tablet,
+          dexWindow,
+          landscapePhone,
+        ]) {
           expect(
             setting.resolve(window),
             expected,
@@ -95,7 +112,13 @@ void main() {
       // downstream may ever be handed an unresolved choice and ask it which
       // way it points.
       for (final setting in TabBarPositionSetting.values) {
-        for (final window in [phone, smallTablet, tablet, landscapePhone]) {
+        for (final window in [
+          phone,
+          smallTablet,
+          tablet,
+          dexWindow,
+          landscapePhone,
+        ]) {
           expect(TabBarPosition.values, contains(setting.resolve(window)));
         }
       }
@@ -165,14 +188,14 @@ void main() {
       );
     });
 
-    test('the default moves to the rail on a tablet', () {
+    test('the default adapts from phone to desktop-sized window', () {
       expect(
         settingsWith().effectiveTabBarPosition(window: phone),
         TabBarPosition.bottom,
       );
       expect(
         settingsWith().effectiveTabBarPosition(window: tablet),
-        TabBarPosition.left,
+        TabBarPosition.top,
       );
     });
   });

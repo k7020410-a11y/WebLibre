@@ -3405,7 +3405,7 @@
   "settings_tabBarPositionBottomLabel": "Unten",
   "settings_tabBarPositionLeftLabel": "Links",
   "settings_tabBarPositionRightLabel": "Rechts",
-  "settings_tabBarPositionAutoDescription": "Seitenleiste auf großen Bildschirmen, untere Leiste auf Smartphones",
+  "settings_tabBarPositionAutoDescription": "Obere Leiste in Desktopfenstern, Seitenleiste in mittelgroßen Fenstern und untere Leiste auf Smartphones",
   "settings_tabBarPositionTopDescription": "Dauerhafte Tableiste ohne automatisches Ausblenden",
   "settings_tabBarPositionBottomDescription": "Tableiste mit automatischem Ausblenden",
   "settings_tabBarPositionLeftDescription": "Senkrechte Seitenleiste, zum Ausblenden wischen",

@@ -1,0 +1,20 @@
+{
+  "@@locale": "ar",
+  "uiHelper_findInPageSuggestion": "هل تريد البحث عن \"{query}\" في هذه الصفحة؟",
+  "uiHelper_actionFind": "بحث",
+  "uiHelper_openedTabsFromAnotherDevice": "{count, plural, =1{فُتحت علامة تبويب واحدة من جهاز آخر} other{فُتحت {count} علامات تبويب من جهاز آخر}}",
+  "uiHelper_navigateBackToCloseTab": "اضغط على زر الرجوع مرة أخرى لإغلاق علامة التبويب الحالية",
+  "uiHelper_navigateBackToExitApp": "اضغط على زر الرجوع مرة أخرى للخروج من التطبيق",
+  "uiHelper_newTabOpenedInBackgroundNamed": "فُتحت علامة التبويب الجديدة '{tabName}' في الخلفية",
+  "uiHelper_newTabOpenedInBackground": "فُتحت علامة تبويب جديدة في الخلفية",
+  "uiHelper_actionShow": "إظهار",
+  "uiHelper_wantToOpenLinkFromClipboard": "هل تريد فتح الرابط من الحافظة؟",
+  "uiHelper_newTabOpenedNamed": "فُتح تبويب جديد بعنوان '{tabName}'",
+  "uiHelper_newTabOpened": "فُتح تبويب جديد",
+  "uiHelper_actionSwitch": "التبديل",
+  "uiHelper_couldNotLaunchUrl": "تعذّر فتح URL ({url})",
+  "uiHelper_canNotHandleScheme": "لا يوجد تطبيق يمكنه فتح روابط \"{scheme}\"",
+  "uiHelper_tabsClosedCount": "{count, plural, =1{أُغلق تبويب واحد} other{أُغلقت {count} تبويبات}}",
+  "uiHelper_closeIsolatedTabsTitle": "هل تريد إغلاق علامات التبويب المعزولة؟",
+  "uiHelper_closeIsolatedTabsConfirm": "{count, plural, =1{سيؤدي هذا إلى محو جميع بيانات التصفح لهذه الجلسة المعزولة نهائيًا.} other{سيؤدي هذا إلى محو بيانات التصفح نهائيًا لـ {count} جلسات معزولة.}}"
+}

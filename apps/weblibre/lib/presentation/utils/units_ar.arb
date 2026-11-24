@@ -1,0 +1,10 @@
+{
+  "@@locale": "ar",
+  "units_bytes": "{value} بايت",
+  "units_kilobytes": "{value} كيلوبايت",
+  "units_megabytes": "{value} ميغابايت",
+  "units_milliseconds": "{value} مللي ثانية",
+  "units_pixels": "{value} بكسل",
+  "units_minutes": "{count, plural, =1{دقيقة واحدة} other{{count} دقيقة}}",
+  "units_hours": "{count, plural, =1{ساعة واحدة} other{{count} ساعة}}"
+}

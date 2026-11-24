@@ -945,7 +945,7 @@
   "settings_tabBarPositionBottomLabel": "Внизу",
   "settings_tabBarPositionLeftLabel": "Слева",
   "settings_tabBarPositionRightLabel": "Справа",
-  "settings_tabBarPositionAutoDescription": "Боковая панель на больших экранах, нижняя панель на телефонах",
+  "settings_tabBarPositionAutoDescription": "Верхняя панель в окнах настольного размера, боковая панель в окнах среднего размера и нижняя панель на телефонах",
   "settings_tabBarPositionTopDescription": "Постоянная панель вкладок без автоскрытия",
   "settings_tabBarPositionBottomDescription": "Панель вкладок с поддержкой автоскрытия",
   "settings_tabBarPositionLeftDescription": "Вертикальная боковая панель, скрывается свайпом",

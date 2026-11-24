@@ -1,0 +1,23 @@
+{
+  "@@locale": "ar",
+  "mainApp_initializationErrorTitle": "خطأ في التهيئة",
+  "mainApp_initializationErrorMessage": "تعذّرت تهيئة التطبيق",
+  "mainApp_initStageLoadingFormats": "جارٍ تحميل التنسيقات…",
+  "mainApp_initStageLoadingPackageInfo": "جارٍ تحميل معلومات التطبيق…",
+  "mainApp_initStageSyncingBangs": "جارٍ مزامنة اختصارات البحث…",
+  "mainApp_downloadCompleted": "اكتمل التنزيل",
+  "mainApp_downloadOpenFailed": "تعذّر فتح الملف الذي تم تنزيله",
+  "mainApp_downloadFailed": "فشل التنزيل: {name}",
+  "mainApp_containerBlockedWithHost": "النطاق {host} غير مخصص لهذه الحاوية",
+  "mainApp_containerBlockedNoHost": "هذا الموقع غير مخصص لهذه الحاوية",
+  "mainApp_containerBlockedBackgroundWithHost": "لم يتم تحميل علامة التبويب المفتوحة في الخلفية لـ {host}: لم يُضَف الموقع إلى حاويتها",
+  "mainApp_sandboxNoCredits": "نفدت أرصدة البحث لديك. اشترِ المزيد للمتابعة.",
+  "mainApp_sandboxTokenIssuanceFailed": "تعذّر إصدار رموز بحث جديدة. تحقّق من اتصالك وحاول مرة أخرى.",
+  "mainApp_sandboxFetchPolicyRejected": "حُظر الالتقاط وفقًا لسياسة الجلب: {detail}",
+  "mainApp_sandboxDetailNotAllowed": "غير مسموح",
+  "mainApp_sandboxCaptureFailed": "فشل الالتقاط: {detail}",
+  "mainApp_sandboxDetailUnknownError": "خطأ غير معروف",
+  "mainApp_sandboxDownloadFailed": "فشل تنزيل ملف الالتقاط.",
+  "mainApp_sandboxUnknownError": "خطأ في الالتقاط المعزول: {detail}",
+  "mainApp_syncFailed": "فشلت المزامنة"
+}

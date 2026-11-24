@@ -1,0 +1,20 @@
+{
+  "@@locale": "ar",
+  "searchCredits_couldNotLoadTitle": "تعذّر تحميل الرصيد",
+  "searchCredits_title": "أرصدة البحث",
+  "searchCredits_errorSubtitle": "تحقّق من اتصالك واضغط على زر التحديث لإعادة المحاولة.",
+  "searchCredits_emptySubtitle": "اشترِ باقة بحث للبدء",
+  "searchCredits_creditsWithAllowance": "الأرصدة: {credits} / {allowance}  ·  الرموز المحفوظة: {stash}",
+  "searchCredits_creditsNoAllowance": "الأرصدة: {credits}  ·  الرموز المحفوظة: {stash}",
+  "searchCredits_tooltipRefresh": "تحديث",
+  "searchCredits_resetsOn": "يتجدد في {date}",
+  "searchCredits_lastIssuance": "آخر إصدار: {relative}  ({absolute})",
+  "searchCredits_requestingTokens": "جارٍ طلب الرموز...",
+  "searchCredits_issuanceFailed": "فشل إصدار الرموز: {error}",
+  "searchCredits_needsReauth": "يُرجى تسجيل الدخول مجددًا لطلب الرموز.",
+  "searchCredits_buySearchPackTitle": "شراء باقة بحث",
+  "searchCredits_getTokensTitle": "الحصول على الرموز",
+  "searchCredits_requestTokensCount": "{count, plural, =1{طلب رمز واحد} other{طلب {count} رموز}}",
+  "searchCredits_noCreditsRemaining": "لا توجد أرصدة متبقية",
+  "searchCredits_buyMoreTitle": "شراء المزيد"
+}

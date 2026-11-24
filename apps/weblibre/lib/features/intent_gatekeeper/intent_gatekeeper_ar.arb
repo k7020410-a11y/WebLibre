@@ -1,0 +1,9 @@
+{
+  "@@locale": "ar",
+  "intentGatekeeper_dialogTitle": "هل تريد فتح الرابط في WebLibre؟",
+  "intentGatekeeper_appIsTryingToOpenLink": "يحاول {appName} فتح رابط في {browserName}.",
+  "intentGatekeeper_alwaysAllow": "السماح دائمًا",
+  "intentGatekeeper_allowOnce": "السماح مرة واحدة",
+  "intentGatekeeper_blockOnce": "الحظر مرة واحدة",
+  "intentGatekeeper_alwaysBlock": "الحظر دائمًا"
+}

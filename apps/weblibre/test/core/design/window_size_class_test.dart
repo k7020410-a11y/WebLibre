@@ -113,6 +113,27 @@ void main() {
     });
   });
 
+  group('prefersDesktopTabBar', () {
+    test('requires expanded width and a non-short window', () {
+      expect(
+        WindowSizeClass.fromSize(const Size(1280, 800)).prefersDesktopTabBar,
+        isTrue,
+      );
+      expect(
+        WindowSizeClass.fromSize(const Size(1920, 1080)).prefersDesktopTabBar,
+        isTrue,
+      );
+      expect(
+        WindowSizeClass.fromSize(const Size(700, 1000)).prefersDesktopTabBar,
+        isFalse,
+      );
+      expect(
+        WindowSizeClass.fromSize(const Size(1400, 300)).prefersDesktopTabBar,
+        isFalse,
+      );
+    });
+  });
+
   group('allowsWideRail', () {
     test('requires expanded width', () {
       expect(

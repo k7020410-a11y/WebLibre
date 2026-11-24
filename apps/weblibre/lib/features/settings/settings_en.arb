@@ -4005,7 +4005,7 @@
   "@settings_tabBarPositionRightLabel": {
     "description": "Tab bar position option: right edge (side rail). Keep it short."
   },
-  "settings_tabBarPositionAutoDescription": "A side rail on large screens, a bottom bar on phones",
+  "settings_tabBarPositionAutoDescription": "A top bar on desktop-sized windows, a side rail on medium windows, and a bottom bar on phones",
   "@settings_tabBarPositionAutoDescription": {
     "description": "Explanation under \"Automatic\"."
   },

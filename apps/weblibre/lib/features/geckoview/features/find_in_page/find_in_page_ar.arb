@@ -1,0 +1,6 @@
+{
+  "@@locale": "ar",
+  "findInPage_hint": "البحث في الصفحة",
+  "findInPage_matchPosition": "{current} من {total}",
+  "findInPage_noMatches": "لم يُعثر على نتائج"
+}

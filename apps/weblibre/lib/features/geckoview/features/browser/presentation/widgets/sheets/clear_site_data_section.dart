@@ -132,7 +132,7 @@ class ClearSiteDataSection extends HookConsumerWidget {
             onChanged: (selected) => toggleType(ClearDataType.allSiteData),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsetsDirectional.only(start: 16.0),
             child: _DataTypeCheckbox(
               label: l10n.browser_dataTypeCookies,
               subtitle: l10n.browser_dataTypeCookiesSubtitle,
@@ -146,7 +146,7 @@ class ClearSiteDataSection extends HookConsumerWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsetsDirectional.only(start: 16.0),
             child: _DataTypeCheckbox(
               label: l10n.browser_dataTypeCachedFiles,
               subtitle: l10n.browser_dataTypeCachedFilesSubtitle,

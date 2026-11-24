@@ -3405,7 +3405,7 @@
   "settings_tabBarPositionBottomLabel": "Abajo",
   "settings_tabBarPositionLeftLabel": "Izquierda",
   "settings_tabBarPositionRightLabel": "Derecha",
-  "settings_tabBarPositionAutoDescription": "Una barra lateral en pantallas grandes y una barra inferior en teléfonos",
+  "settings_tabBarPositionAutoDescription": "Barra superior en ventanas de escritorio, barra lateral en ventanas medianas y barra inferior en teléfonos",
   "settings_tabBarPositionTopDescription": "Barra de pestañas fija, sin ocultación automática",
   "settings_tabBarPositionBottomDescription": "Barra de pestañas con ocultación automática",
   "settings_tabBarPositionLeftDescription": "Barra lateral vertical; desliza para ocultarla",

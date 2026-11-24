@@ -1,0 +1,19 @@
+{
+  "@@locale": "ar",
+  "profileCopy_pickerContents": "علامات التبويب والسجل والإعدادات",
+  "profileCopy_dataDescription": "علامات التبويب والسجل والإشارات المرجعية والإعدادات وبيانات تسجيل الدخول المحفوظة للمواقع",
+  "profileCopy_secretDataDescription": "تسجيل الدخول إلى حساب WebLibre وإعداد المزامنة وتفاصيل الوكيل",
+  "profileCopy_cannotBeUndone": "لا يمكن التراجع عن هذا الإجراء.",
+  "profileCopy_nothingChanged": "لم يتغير أي شيء.",
+  "profileCopy_restartsToWork": "يجب إعادة تشغيل WebLibre لتنفيذ ذلك.",
+  "profileCopy_asksPasswordAfterRestart": "بعد إعادة التشغيل، يطلب WebLibre كلمة مرور ملف النسخة الاحتياطية.",
+  "profileCopy_reopenToContinue": "أغلق WebLibre ثم افتحه مجددًا.",
+  "profileCopy_signedInFromBackup": "يستخدم الملف الشخصي المستعاد حساب WebLibre الموجود في النسخة الاحتياطية.",
+  "profileCopy_olderBackupKeepsCredentials": "لا تحتوي النسخة الاحتياطية التي أُنشئت بإصدار أقدم من WebLibre على أيٍّ من هذه البيانات، لذا يحتفظ الملف الشخصي بالبيانات الحالية.",
+  "profileCopy_restartCouldNotBeScheduled": "تعذّر على WebLibre جدولة إعادة التشغيل اللازمة لهذه العملية. {nothingChanged}",
+  "profileCopy_shortcutsNeedPinningAgain": "ثبّت اختصارات الشاشة الرئيسية مجددًا بعد الاستعادة.",
+  "profileCopy_restartClosesCurrentProfile": "كما سيُغلق الملف الشخصي الذي تستخدمه حاليًا، وقد لا يكون هو الملف الشخصي المذكور هنا.",
+  "profileCopy_restartKeepsOtherTabs": "ستُعاد فتح علامات التبويب الأخرى بعد ذلك.",
+  "profileCopy_privateTabsClosedByRestart": "{count, plural, =1{ستُغلق علامة تبويب خاصة واحدة وتُمحى بيانات التصفح الخاصة بها.} other{ستُغلق {count} من علامات التبويب الخاصة وتُمحى بيانات التصفح الخاصة بها.}}",
+  "profileCopy_containersClearedByRestart": "{count, plural, =1{ستُمسح حاوية واحدة مضبوطة على مسح البيانات عند الخروج.} other{ستُمسح {count} من الحاويات المضبوطة على مسح البيانات عند الخروج.}}"
+}

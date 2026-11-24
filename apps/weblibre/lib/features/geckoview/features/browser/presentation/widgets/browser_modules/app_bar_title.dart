@@ -171,15 +171,15 @@ class CompactAppBarTitleView extends StatelessWidget {
           onTap: onSiteSettingsTap,
           semanticLabel: l10n.browser_siteSettingsButton,
           child: Padding(
-            padding: const EdgeInsets.only(right: 4.0),
+            padding: const EdgeInsetsDirectional.only(end: 4.0),
             child: Stack(
               clipBehavior: Clip.none,
               children: [
                 tabIcon ?? TabIcon(tabState: tabState, iconSize: 24),
                 if (siteSettingsBadgeState != SiteSettingsBadgeState.hidden)
-                  Positioned(
+                  PositionedDirectional(
                     top: -4,
-                    right: -4,
+                    end: -4,
                     child: Icon(
                       siteSettingsBadgeState == SiteSettingsBadgeState.improved
                           ? MdiIcons.shield
@@ -411,15 +411,15 @@ class AppBarTitleView extends StatelessWidget {
           onTap: onSiteSettingsTap,
           semanticLabel: l10n.browser_siteSettingsButton,
           child: Padding(
-            padding: const EdgeInsets.only(right: 4.0),
+            padding: const EdgeInsetsDirectional.only(end: 4.0),
             child: Stack(
               clipBehavior: Clip.none,
               children: [
                 tabIcon ?? TabIcon(tabState: tabState, iconSize: 24),
                 if (siteSettingsBadgeState != SiteSettingsBadgeState.hidden)
-                  Positioned(
+                  PositionedDirectional(
                     top: -4,
-                    right: -4,
+                    end: -4,
                     child: Icon(
                       siteSettingsBadgeState == SiteSettingsBadgeState.improved
                           ? MdiIcons.shield
@@ -447,7 +447,7 @@ class AppBarTitleView extends StatelessWidget {
                   enabled: tabState.title.isEmpty,
                   child: Skeleton.replace(
                     replacement: const Padding(
-                      padding: EdgeInsets.only(right: 4, top: 1, bottom: 1),
+                      padding: EdgeInsetsDirectional.only(end: 4, top: 1, bottom: 1),
                       child: Bone.text(),
                     ),
                     child: TextScroll(
@@ -705,9 +705,9 @@ class RailAppBarTitleView extends StatelessWidget {
               children: [
                 tabIcon ?? TabIcon(tabState: tabState, iconSize: 24),
                 if (siteSettingsBadgeState != SiteSettingsBadgeState.hidden)
-                  Positioned(
+                  PositionedDirectional(
                     top: -4,
-                    right: -4,
+                    end: -4,
                     child: Icon(
                       siteSettingsBadgeState == SiteSettingsBadgeState.improved
                           ? MdiIcons.shield

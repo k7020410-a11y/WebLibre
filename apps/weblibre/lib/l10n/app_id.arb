@@ -3405,7 +3405,7 @@
   "settings_tabBarPositionBottomLabel": "Bawah",
   "settings_tabBarPositionLeftLabel": "Kiri",
   "settings_tabBarPositionRightLabel": "Kanan",
-  "settings_tabBarPositionAutoDescription": "Rel samping di layar besar, bilah bawah di ponsel",
+  "settings_tabBarPositionAutoDescription": "Bilah atas di jendela desktop, rel samping di jendela berukuran sedang, dan bilah bawah di ponsel",
   "settings_tabBarPositionTopDescription": "Bilah tab tetap tanpa sembunyi otomatis",
   "settings_tabBarPositionBottomDescription": "Bilah tab dengan dukungan sembunyi otomatis",
   "settings_tabBarPositionLeftDescription": "Rel samping vertikal, usap untuk menyembunyikan",

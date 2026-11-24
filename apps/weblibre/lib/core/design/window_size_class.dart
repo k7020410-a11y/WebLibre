@@ -116,6 +116,15 @@ class WindowSizeClass {
     return WindowHeightClass.expanded;
   }
 
+  /// Whether an unconfigured tab bar should use the horizontal desktop edge.
+  ///
+  /// The existing window classes are the reliable signal for DeX and other
+  /// desktop-sized windows. A short, wide phone window is intentionally not
+  /// enough; it remains a bottom bar. Explicit tab-bar positions are unaffected.
+  bool get prefersDesktopTabBar =>
+      width == WindowWidthClass.expanded &&
+      height != WindowHeightClass.compact;
+
   /// Whether an unconfigured tab bar should dock to a vertical side edge
   /// rather than the bottom.
   ///

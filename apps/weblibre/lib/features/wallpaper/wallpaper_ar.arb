@@ -1,0 +1,15 @@
+{
+  "@@locale": "ar",
+  "wallpaper_title": "الخلفية",
+  "wallpaper_settingsDescription": "تظهر خلف الصفحة الرئيسية في كل حاوية لا تضبط خلفية خاصة بها.",
+  "wallpaper_chooseImage": "اختيار صورة",
+  "wallpaper_replace": "استبدال",
+  "wallpaper_blurLabel": "التمويه",
+  "wallpaper_dimLabel": "التعتيم",
+  "wallpaper_dimDescription": "يمزج التعتيم الصورة مع خلفية التطبيق، لتظل نصوص الصفحات مقروءة في المظهرين الفاتح والداكن.",
+  "wallpaper_editorDefaultDescription": "تحتفظ الصفحة الرئيسية بخلفيتها الافتراضية.",
+  "wallpaper_importErrorUnreadable": "تعذّرت قراءة هذا الملف",
+  "wallpaper_importErrorTooLarge": "هذه الصورة كبيرة جدًا",
+  "wallpaper_importErrorNotAnImage": "هذا الملف ليس صورة",
+  "wallpaper_importErrorDecodeFailed": "تعذّرت قراءة هذه الصورة"
+}

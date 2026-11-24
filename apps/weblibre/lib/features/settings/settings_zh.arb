@@ -945,7 +945,7 @@
   "settings_tabBarPositionBottomLabel": "底部",
   "settings_tabBarPositionLeftLabel": "左侧",
   "settings_tabBarPositionRightLabel": "右侧",
-  "settings_tabBarPositionAutoDescription": "大屏幕上为侧边栏，手机上为底部栏",
+  "settings_tabBarPositionAutoDescription": "桌面大小的窗口显示顶部栏，中等大小的窗口显示侧边栏，手机显示底部栏",
   "settings_tabBarPositionTopDescription": "常驻标签栏，不自动隐藏",
   "settings_tabBarPositionBottomDescription": "支持自动隐藏的标签栏",
   "settings_tabBarPositionLeftDescription": "垂直侧边栏，滑动可隐藏",

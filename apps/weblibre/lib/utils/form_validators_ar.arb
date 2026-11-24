@@ -1,0 +1,8 @@
+{
+  "@@locale": "ar",
+  "formValidators_urlRequired": "عنوان URL مطلوب",
+  "formValidators_invalidUrl": "عنوان URL غير صالح",
+  "formValidators_valueRequired": "القيمة مطلوبة",
+  "formValidators_nameRequired": "الاسم مطلوب",
+  "formValidators_nameInvalidCharacters": "يحتوي الاسم على أحرف غير مسموح بها"
+}

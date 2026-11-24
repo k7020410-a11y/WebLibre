@@ -417,7 +417,7 @@ class _SendToDeviceTile extends ConsumerWidget {
               if (targets.isEmpty) {
                 return [
                   ListTile(
-                    contentPadding: const EdgeInsets.only(left: 72, right: 16),
+                    contentPadding: const EdgeInsetsDirectional.only(start: 72, end: 16),
                     title: Text(l10n.browser_noTargetDevices),
                   ),
                 ];
@@ -426,9 +426,9 @@ class _SendToDeviceTile extends ConsumerWidget {
               return targets
                   .map(
                     (device) => ListTile(
-                      contentPadding: const EdgeInsets.only(
-                        left: 72,
-                        right: 16,
+                      contentPadding: const EdgeInsetsDirectional.only(
+                        start: 72,
+                        end: 16,
                       ),
                       leading: const Icon(Icons.devices_other, size: 18),
                       title: Text(device.displayName),
@@ -480,14 +480,14 @@ class _SendToDeviceTile extends ConsumerWidget {
             },
             loading: () => [
               ListTile(
-                contentPadding: const EdgeInsets.only(left: 72, right: 16),
+                contentPadding: const EdgeInsetsDirectional.only(start: 72, end: 16),
                 leading: const Icon(Icons.devices_other, size: 18),
                 title: Text(l10n.browser_loadingDevices),
               ),
             ],
             error: (_, _) => [
               ListTile(
-                contentPadding: const EdgeInsets.only(left: 72, right: 16),
+                contentPadding: const EdgeInsetsDirectional.only(start: 72, end: 16),
                 title: Text(l10n.browser_failedToLoadDevices),
               ),
             ],

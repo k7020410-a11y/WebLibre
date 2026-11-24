@@ -19,6 +19,7 @@
  */
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weblibre/core/providers/app_localizations.dart';
 import 'package:weblibre/l10n/generated/app_localizations.dart';
@@ -39,6 +40,43 @@ void main() {
       ], AppLocalizations.supportedLocales);
 
       expect(locale, const Locale('de'));
+    });
+
+    test('Arabic is a supported, explicitly selectable app locale', () {
+      const arabic = Locale('ar');
+
+      expect(AppLocalizations.supportedLocales, contains(arabic));
+      expect(
+        resolveAppLocale(const [arabic], AppLocalizations.supportedLocales),
+        arabic,
+      );
+    });
+
+    testWidgets('Arabic app localization uses right-to-left layout', (
+      tester,
+    ) async {
+      late TextDirection direction;
+      late String localizedLabel;
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('ar'),
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          home: Builder(
+            builder: (context) {
+              direction = Directionality.of(context);
+              localizedLabel = AppLocalizations.of(
+                context,
+              ).settings_appLanguageSystemDefault;
+              return Text(localizedLabel);
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(direction, TextDirection.rtl);
+      expect(RegExp(r'[\u0600-\u06FF]').hasMatch(localizedLabel), isTrue);
     });
   });
 }

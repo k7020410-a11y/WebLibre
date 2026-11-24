@@ -176,7 +176,7 @@ class _SyncedDeviceSelector extends ConsumerWidget {
             children: devices
                 .map((device) {
                   return Padding(
-                    padding: const EdgeInsets.only(right: 6.0),
+                    padding: const EdgeInsetsDirectional.only(end: 6.0),
                     child: ChoiceChip(
                       label: Text(device.deviceName),
                       selected: effectiveSelectedDeviceId == device.deviceId,
@@ -620,7 +620,7 @@ class TabViewActionBar extends ConsumerWidget {
       child: Material(
         color: color,
         child: Padding(
-          padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: bottomInset),
+          padding: EdgeInsetsDirectional.only(start: 8.0, end: 8.0, bottom: bottomInset),
           child: SizedBox(
             height: height,
             child: _TabViewActionRow(tabsViewMode: tabsViewMode),

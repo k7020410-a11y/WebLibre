@@ -1,0 +1,7 @@
+{
+  "@@locale": "ar",
+  "httpErrorHandler_socketError": "تعذّر الاتصال بالخدمة البعيدة",
+  "httpErrorHandler_httpError": "أعاد طلب الويب خطأً",
+  "httpErrorHandler_formatError": "تنسيق الاستجابة غير صالح",
+  "httpErrorHandler_clientError": "تعذّر الاتصال بالخدمة البعيدة"
+}

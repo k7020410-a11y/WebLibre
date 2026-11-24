@@ -288,7 +288,7 @@ Widget buildQuickTabSwitcherChipLabel(
     children: [
       if (showInlineDepth)
         Padding(
-          padding: const EdgeInsets.only(right: 6.0),
+          padding: const EdgeInsetsDirectional.only(end: 6.0),
           child: TabDepthIndicator(
             depth: item.depth,
             height: 20.0,
@@ -298,7 +298,7 @@ Widget buildQuickTabSwitcherChipLabel(
           ),
         ),
       Padding(
-        padding: EdgeInsets.only(right: hasTitle ? 6.0 : 0.0),
+        padding: EdgeInsetsDirectional.only(end: hasTitle ? 6.0 : 0.0),
         child: avatar,
       ),
       if (hasTitle)
@@ -310,7 +310,7 @@ Widget buildQuickTabSwitcherChipLabel(
           showIsolatedTabUi &&
           item.tabMode is IsolatedTabMode)
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: Icon(
             MdiIcons.snowflake,
             color: appColors.isolatedTabTeal,
@@ -319,7 +319,7 @@ Widget buildQuickTabSwitcherChipLabel(
         )
       else if (showInlineMarkers && item.tabMode is PrivateTabMode)
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: Icon(
             MdiIcons.dominoMask,
             color: appColors.privateTabPurple,
@@ -328,7 +328,7 @@ Widget buildQuickTabSwitcherChipLabel(
         ),
       if (showInlineMarkers && item.isSandbox)
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: Icon(
             MdiIcons.archiveLockOutline,
             color: Theme.of(context).colorScheme.tertiary,
@@ -337,7 +337,7 @@ Widget buildQuickTabSwitcherChipLabel(
         ),
       if (showInlineMarkers && item.isPinned)
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: Icon(
             MdiIcons.pin,
             color: Theme.of(context).colorScheme.primary,
@@ -348,34 +348,34 @@ Widget buildQuickTabSwitcherChipLabel(
         TabLockBadge(
           tabId: item.id,
           size: 20,
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
         ),
       if (showInlineMarkers && !item.isPlaceholder)
         TabSleepBadge(
           tabId: item.id,
           size: 20,
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
         ),
       if (showInlineMarkers && !item.isPlaceholder)
         TabKeepAwakeBadge(
           tabId: item.id,
           size: 20,
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
         ),
       if (showInlineMarkers && !item.isPlaceholder)
         SplitMemberMark(
           tabId: item.id,
           size: 20,
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
         ),
       if (showInlineMarkers && item.isHistory)
         const Padding(
-          padding: EdgeInsets.only(left: 8.0),
+          padding: EdgeInsetsDirectional.only(start: 8.0),
           child: Icon(MdiIcons.history, size: 20),
         ),
       if (item.isGroup)
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: _GroupSizeBadge(item: item),
         ),
     ],
@@ -459,8 +459,8 @@ class _RailMarkerAvatar extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned.fill(child: child),
-          Positioned(
-            right: -3,
+          PositionedDirectional(
+            end: -3,
             top: -5,
             child: Container(
               width: 12,
@@ -500,8 +500,8 @@ class _RailLockAvatar extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned.fill(child: child),
-          Positioned(
-            left: -3,
+          PositionedDirectional(
+            start: -3,
             top: -5,
             child: Container(
               width: 12,
@@ -542,8 +542,8 @@ class _RailDepthAvatar extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned.fill(child: child),
-          Positioned(
-            right: -3,
+          PositionedDirectional(
+            end: -3,
             bottom: -5,
             child: Container(
               constraints: const BoxConstraints(minWidth: 12, minHeight: 12),
@@ -640,7 +640,7 @@ class QuickTabSwitcherChip extends StatelessWidget {
     required this.label,
     required this.onTap,
     this.onDelete,
-    this.padding = const EdgeInsets.only(right: 8.0, top: 4.0),
+    this.padding = const EdgeInsetsDirectional.only(end: 8.0, top: 4.0),
   });
 
   @override

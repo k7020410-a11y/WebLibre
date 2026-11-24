@@ -211,8 +211,8 @@ enum TabBarPosition {
 /// [HomeSearchBarPlacement] folds its own `auto` into one enum because it has
 /// no such accessors; the difference is the accessors, not a change of style.
 enum TabBarPositionSetting {
-  /// Follow the window: a bottom bar where there is no room for anything else,
-  /// a side rail once the window is wide enough to spare the width.
+  /// Follow the window: a bottom bar on phones, a side rail on medium windows,
+  /// and a horizontal top bar on desktop-sized windows such as Samsung DeX.
   auto,
   top,
   bottom,
@@ -224,8 +224,11 @@ enum TabBarPositionSetting {
   /// Only [auto] consults the window; every explicit choice is returned
   /// untouched, on any screen. A user who put the bar somewhere meant it.
   TabBarPosition resolve(WindowSizeClass window) => switch (this) {
-    auto =>
-      window.prefersSideRail ? TabBarPosition.left : TabBarPosition.bottom,
+    auto => window.prefersDesktopTabBar
+        ? TabBarPosition.top
+        : window.prefersSideRail
+        ? TabBarPosition.left
+        : TabBarPosition.bottom,
     top => TabBarPosition.top,
     bottom => TabBarPosition.bottom,
     left => TabBarPosition.left,

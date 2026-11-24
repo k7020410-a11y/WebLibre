@@ -4,8 +4,10 @@ name: Flutter CICD
 # never reaches the build: `build` signs with a throwaway key, `sign` re-signs
 # with the production key and runs nothing from the repository, `verify`
 # checks the signed artifacts and writes release.json, and only the publish
-# jobs can write anywhere. The update catalogue is not produced here: the
-# separate updates repository finds new releases on its own schedule (9.2).
+# jobs can write anywhere. Pull requests run `build` only and retain a temporary
+# APK artifact; signing, verification and publication are tag-push-only. The
+# update catalogue is not produced here: the separate updates repository finds
+# new releases on its own schedule (9.2).
 #
 # Repository settings this relies on (not expressible in YAML): protect `v*`
 # tags; restrict the `release-signing` and `play` environments to `v*` tags;
@@ -26,6 +28,9 @@ on:
   push:
     tags:
       - "v*"
+  pull_request:
+    branches:
+      - main
 
 permissions: {}
 
@@ -65,6 +70,7 @@ jobs:
           persist-credentials: false
 
       - name: Check the build number rises (D4)
+        if: github.event_name == 'push'
         run: |
           set -euo pipefail
           # The check orders tags by creation time, which only an annotated
@@ -115,7 +121,7 @@ jobs:
       - name: Determine build type
         id: build-type
         run: |
-          if [[ "$TAG" =~ (pre|alpha) ]]; then
+          if [[ "$GITHUB_EVENT_NAME" != "push" || "$TAG" =~ (pre|alpha) ]]; then
             echo "is_prerelease=true" >> "$GITHUB_OUTPUT"
             echo "Build type: Prerelease (APK only)"
           else
@@ -160,6 +166,16 @@ jobs:
       # but never re-merges the per-feature fragments into it.
       - name: Check localization template is up to date
         run: python3 scripts/merge_l10n_arb.py --check
+
+      - name: Generate localization Dart sources
+        working-directory: apps/weblibre
+        run: flutter gen-l10n
+
+      - name: Analyze and test Flutter application
+        working-directory: apps/weblibre
+        run: |
+          flutter analyze
+          flutter test
 
       - name: Update external assets
         run: melos run update-assets --no-select
@@ -309,6 +325,7 @@ jobs:
 
   sign:
     name: Re-sign (production key)
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-24.04
     environment: release-signing

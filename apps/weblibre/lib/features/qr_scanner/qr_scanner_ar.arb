@@ -1,0 +1,5 @@
+{
+  "@@locale": "ar",
+  "qrScanner_noCameraPermission": "لم يُمنح إذن الوصول إلى الكاميرا.",
+  "qrScanner_scanCodeTitle": "مسح رمز"
+}

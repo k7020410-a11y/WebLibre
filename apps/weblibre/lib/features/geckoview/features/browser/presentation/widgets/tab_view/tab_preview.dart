@@ -294,9 +294,9 @@ class GridTabPreview extends HookConsumerWidget {
                     // badges show for any tab, and are empty otherwise. Each
                     // shown item keeps 4 px to the next, in the tab list's
                     // order.
-                    Positioned(
+                    PositionedDirectional(
                       top: 6.0,
-                      left: 6.0,
+                      start: 6.0,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -310,7 +310,7 @@ class GridTabPreview extends HookConsumerWidget {
                           ],
                           if (isPinned)
                             Padding(
-                              padding: const EdgeInsets.only(right: 4),
+                              padding: const EdgeInsetsDirectional.only(end: 4),
                               child: SizedBox(
                                 width: 28,
                                 height: 28,
@@ -608,7 +608,7 @@ class ListTabPreview extends HookConsumerWidget {
                             ..._stateBadges(tabId, withLock: !hasCloseButton),
                             SplitMemberMark(
                               tabId: tabId,
-                              padding: const EdgeInsets.only(right: 4),
+                              padding: const EdgeInsetsDirectional.only(end: 4),
                             ),
                             if (modeBadgeIcon != null) ...[
                               Icon(
@@ -765,7 +765,7 @@ class SyncedListTabPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      contentPadding: const EdgeInsets.only(left: 8, right: 6),
+      contentPadding: const EdgeInsetsDirectional.only(start: 8, end: 6),
       leading: UrlIcon([url], iconSize: 20),
       title: Text(title, maxLines: 2, overflow: TextOverflow.ellipsis),
       subtitle: Column(
@@ -1123,9 +1123,9 @@ class _GridCloseButton extends StatelessWidget {
         child: SizedBox.square(
           dimension: kMinInteractiveDimension,
           child: Align(
-            alignment: Alignment.topRight,
+            alignment: AlignmentDirectional.topEnd,
             child: Padding(
-              padding: const EdgeInsets.only(top: _inset, right: _inset),
+              padding: const EdgeInsetsDirectional.only(top: _inset, end: _inset),
               child: SizedBox.square(
                 dimension: _visualSize,
                 child: Material(
@@ -1174,7 +1174,7 @@ List<Widget> _stateBadges(
   bool withBackground = false,
   bool withLock = true,
 }) {
-  const padding = EdgeInsets.only(right: 4);
+  const padding = EdgeInsetsDirectional.only(end: 4);
   return [
     if (withLock)
       TabLockBadge(

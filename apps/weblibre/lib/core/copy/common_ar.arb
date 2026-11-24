@@ -1,0 +1,21 @@
+{
+  "@@locale": "ar",
+  "common_cancel": "إلغاء",
+  "common_delete": "حذف",
+  "common_close": "إغلاق",
+  "common_save": "حفظ",
+  "common_add": "إضافة",
+  "common_edit": "تعديل",
+  "common_remove": "إزالة",
+  "common_clear": "محو",
+  "common_copy": "نسخ",
+  "common_open": "فتح",
+  "common_reset": "إعادة تعيين",
+  "common_retry": "إعادة المحاولة",
+  "common_done": "تم",
+  "common_undo": "تراجع",
+  "common_dismiss": "إخفاء",
+  "common_discard": "تجاهل",
+  "common_showLess": "عرض أقل",
+  "common_loading": "جارٍ التحميل…"
+}
