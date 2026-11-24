@@ -18,6 +18,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show MouseCursor, MouseCursorSession;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:weblibre/features/custom_cursor/data/custom_cursor_channel.dart';
 import 'package:weblibre/features/custom_cursor/domain/providers.dart';
