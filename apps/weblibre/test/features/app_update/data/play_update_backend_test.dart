@@ -289,7 +289,7 @@ void main() {
   });
 
   group("Play's consent sheet decides what Download leads to", () {
-    Future<UpdateState> download() async {
+    Future<UpdateState> download() {
       host.playInfo = available(43);
       final b = backend(null);
       final offered = await b.check(cancel: CancelToken());

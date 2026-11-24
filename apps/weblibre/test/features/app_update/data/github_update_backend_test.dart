@@ -1033,7 +1033,7 @@ void main() {
     Future<UpdateState> downloadAfterExpiry(
       GithubUpdateBackend b, {
       required Map<String, Object?> next,
-    }) async {
+    }) {
       final available = await b.check(cancel: CancelToken());
       now = DateTime.utc(2027, 1, 5); // past expiresAt + slack
       await publish(

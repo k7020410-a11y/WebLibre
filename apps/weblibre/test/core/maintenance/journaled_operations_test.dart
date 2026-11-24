@@ -823,7 +823,7 @@ void main() {
       },
     );
 
-    test('this build\'s ambiguous restore leaves the target alone', () async {
+    test("this build's ambiguous restore leaves the target alone", () async {
       // Any replacement this build installed was scrubbed before it went in,
       // so here the target is the untouched original.
       await makeProfile(_target);
