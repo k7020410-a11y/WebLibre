@@ -1041,7 +1041,7 @@ void main() {
         issuedAt: DateTime.utc(2027, 1, 4),
         releases: [next],
       );
-      return b.prepare(
+      return await b.prepare(
         available.assessment!,
         onProgress: (_) {},
         cancel: CancelToken(),

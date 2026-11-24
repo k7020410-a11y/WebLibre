@@ -293,7 +293,7 @@ void main() {
       host.playInfo = available(43);
       final b = backend(null);
       final offered = await b.check(cancel: CancelToken());
-      return b.prepare(
+      return await b.prepare(
         offered.assessment!,
         onProgress: (_) {},
         cancel: CancelToken(),
