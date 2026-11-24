@@ -11,6 +11,7 @@ import android.view.MotionEvent
 import android.view.PointerIcon
 import android.view.View
 import android.widget.FrameLayout
+import eu.weblibre.flutter_mozilla_components.pointer.CustomPointerIcons
 import eu.weblibre.flutter_mozilla_components.pointer.PointerInputRouter
 
 /**
@@ -58,7 +59,14 @@ open class PointerInputFrameLayout(
      */
     override fun onResolvePointerIcon(event: MotionEvent, pointerIndex: Int): PointerIcon? =
         if (router.resolvesPointerIcon(this, event)) {
-            super.onResolvePointerIcon(event, pointerIndex)
+            // The user's custom cursor replaces only the page's plain arrow;
+            // every other cursor the page asks for passes through unchanged.
+            CustomPointerIcons.resolveForPage(
+                context,
+                event,
+                pointerIndex,
+                super.onResolvePointerIcon(event, pointerIndex),
+            )
         } else {
             null
         }

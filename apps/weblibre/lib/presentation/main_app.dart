@@ -24,6 +24,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:weblibre/core/providers/app_localizations.dart';
 import 'package:weblibre/core/providers/router.dart';
 import 'package:weblibre/domain/services/app_initialization.dart';
+import 'package:weblibre/features/custom_cursor/presentation/widgets/custom_cursor_scope.dart';
 import 'package:weblibre/features/geckoview/domain/providers.dart';
 import 'package:weblibre/features/geckoview/domain/providers/selected_tab.dart';
 import 'package:weblibre/features/sync/domain/entities/sync_repository_state.dart';
@@ -143,7 +144,11 @@ class MainApp extends HookConsumerWidget {
                       child: _SandboxCaptureErrorListener(
                         child: _DownloadStoppedListener(
                           child: _StrictContainerBlockListener(
-                            child: child ?? const SizedBox.shrink(),
+                            // Replaces only the default arrow; see
+                            // CustomImageMouseCursor.
+                            child: CustomCursorScope(
+                              child: child ?? const SizedBox.shrink(),
+                            ),
                           ),
                         ),
                       ),

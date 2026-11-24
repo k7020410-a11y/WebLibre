@@ -40,6 +40,8 @@ import eu.weblibre.flutter_mozilla_components.FlutterEngineCoordinator
 import eu.weblibre.flutter_mozilla_components.HomePressDispatcher
 import eu.weblibre.flutter_mozilla_components.feature.TextSelectionTracker
 import eu.weblibre.flutter_mozilla_components.lock.BrowserLockCover
+import eu.weblibre.flutter_mozilla_components.pointer.CustomCursorFrame
+import eu.weblibre.flutter_mozilla_components.pointer.CustomPointerIcons
 import eu.weblibre.flutter_mozilla_components.startup.LaunchTrust
 import eu.weblibre.flutter_mozilla_components.startup.StartupIntentBroker
 import eu.weblibre.flutter_mozilla_components.startup.StartupPaths
@@ -51,6 +53,7 @@ import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.plugin.common.MethodChannel
+import java.lang.ref.WeakReference
 import java.util.UUID
 
 class MainActivity : FlutterFragmentActivity(), IntentReceiverHost {
@@ -67,9 +70,12 @@ class MainActivity : FlutterFragmentActivity(), IntentReceiverHost {
     private val TRIM_MEMORY_CHANNEL = "eu.weblibre.flutter_mozilla_components/trim_memory"
     private val ACTIVITY_CHANNEL = "eu.weblibre.gecko/activity"
     private val NAVIGATION_BAR_CHANNEL = "eu.weblibre.gecko/navigation_bar"
+    private val CUSTOM_CURSOR_CHANNEL = "eu.weblibre.gecko/custom_cursor"
     private val ENGINE_ID = FlutterEngineCoordinator.ENGINE_ID
     private var trimMemoryChannel: MethodChannel? = null
     private var navigationBarChannel: MethodChannel? = null
+    private var customCursorChannel: MethodChannel? = null
+    private var cursorFlutterView: WeakReference<FlutterView>? = null
     private var lastNavigationBarLayout: NavigationBarLayout? = null
     private val contentLocation = IntArray(2)
 
@@ -400,6 +406,13 @@ class MainActivity : FlutterFragmentActivity(), IntentReceiverHost {
             }
         }
 
+        customCursorChannel = MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
+            CUSTOM_CURSOR_CHANNEL,
+        ).apply {
+            setMethodCallHandler { call, result -> handleCustomCursorCall(call, result) }
+        }
+
         navigationBarChannel = MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
             NAVIGATION_BAR_CHANNEL,
@@ -419,6 +432,53 @@ class MainActivity : FlutterFragmentActivity(), IntentReceiverHost {
         }
     }
 
+    /** The Flutter view whose pointer icon the browser UI's cursor is set on. */
+    private fun flutterViewForCursor(): FlutterView? {
+        cursorFlutterView?.get()?.takeIf { it.isAttachedToWindow }?.let { return it }
+        val found = findFlutterView(window.decorView)
+        cursorFlutterView = found?.let { WeakReference(it) }
+        return found
+    }
+
+    /**
+     * The custom mouse cursor (see [CustomPointerIcons]). Web pages are served
+     * by the pointer router's surface; this handler covers the Flutter UI and
+     * tells Dart whether DeX is active.
+     */
+    private fun handleCustomCursorCall(
+        call: io.flutter.plugin.common.MethodCall,
+        result: MethodChannel.Result,
+    ) {
+        when (call.method) {
+            "isDesktopMode" -> result.success(CustomPointerIcons.isDesktopMode(this))
+            "configure" -> try {
+                val rawFrames = call.argument<List<Map<String, Any?>>>("frames").orEmpty()
+                val frames = rawFrames.map {
+                    CustomCursorFrame(
+                        it["png"] as ByteArray,
+                        (it["hotX"] as Number).toInt(),
+                        (it["hotY"] as Number).toInt(),
+                    )
+                }
+                CustomPointerIcons.configure(this, frames, call.argument<Int>("sizePercent") ?: 100)
+                result.success(null)
+            } catch (e: Exception) {
+                result.error("custom_cursor", e.message, null)
+            }
+            "clear" -> {
+                CustomPointerIcons.clear()
+                result.success(null)
+            }
+            "showFrame" -> {
+                CustomPointerIcons.frame(call.argument<Int>("index") ?: 0)?.let { icon ->
+                    flutterViewForCursor()?.pointerIcon = icon
+                }
+                result.success(null)
+            }
+            else -> result.notImplemented()
+        }
+    }
+
     /**
      * The engine outlives this activity ([shouldDestroyEngineWithHost]), so the
      * handler, which measures this activity's views, has to go with it. Until the
@@ -428,6 +488,9 @@ class MainActivity : FlutterFragmentActivity(), IntentReceiverHost {
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
         navigationBarChannel?.setMethodCallHandler(null)
         navigationBarChannel = null
+        customCursorChannel?.setMethodCallHandler(null)
+        customCursorChannel = null
+        cursorFlutterView = null
         super.cleanUpFlutterEngine(flutterEngine)
     }
 

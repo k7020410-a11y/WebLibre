@@ -27,6 +27,7 @@ import 'package:weblibre/core/routing/routes.dart';
 import 'package:weblibre/domain/feature_policy/feature_policy.dart';
 import 'package:weblibre/features/app_update/domain/providers.dart';
 import 'package:weblibre/features/app_update/presentation/screens/app_update_settings.dart';
+import 'package:weblibre/features/custom_cursor/presentation/screens/custom_cursor_settings_screen.dart';
 import 'package:weblibre/features/geckoview/features/open_link_tools/presentation/screens/url_cleaner_settings.dart';
 import 'package:weblibre/features/gestures/presentation/screens/gesture_behavior_screen.dart';
 import 'package:weblibre/features/gestures/presentation/screens/gesture_feedback_screen.dart';
@@ -246,6 +247,20 @@ _CategoryGroups _buildCategories(
       keywords: settingsKeywords(l10n.settings_categoryWebContentKeywords),
       sections: webContentSettingsSections(context),
       onTap: (context) => WebContentSettingsRoute().push(context),
+    ),
+    _SettingsCategoryDefinition(
+      title: customCursorSettingsTitle(context),
+      subtitle: customCursorSettingsSubtitle(context),
+      icon: Icons.mouse_outlined,
+      keywords: const ['cursor', 'mouse', 'pointer', 'dex', 'مؤشر', 'ماوس'],
+      // A plain pushed route: it needs neither a typed route nor generated code.
+      onTap: (context) async {
+        await Navigator.of(context).push<void>(
+          MaterialPageRoute(
+            builder: (_) => const CustomCursorSettingsScreen(),
+          ),
+        );
+      },
     ),
     _SettingsCategoryDefinition(
       title: l10n.settings_categoryNotificationsTitle,
