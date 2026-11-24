@@ -27,6 +27,7 @@ import 'package:weblibre/features/user/domain/providers.dart';
 import 'package:weblibre/features/web_search/domain/controllers/search_controller.dart';
 import 'package:weblibre/features/web_search/presentation/open_in_new_tab.dart';
 import 'package:weblibre/features/web_search/presentation/screens/page_preview.dart';
+import 'package:weblibre/l10n/generated/app_localizations.dart';
 
 import '../../test_harness.dart';
 
@@ -70,8 +71,10 @@ void main() {
           iconCacheRevisionProvider.overrideWith((ref, origin) {
             return Stream.value(0);
           }),
-        ],
+        ),
         child: MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: PagePreviewScreen(
             uri: Uri.parse(url),
             resolveOpenTarget: () => _testOpenTarget,

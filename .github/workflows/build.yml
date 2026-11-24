@@ -181,6 +181,9 @@ jobs:
             apps/weblibre/assets/sites \
             apps/weblibre/assets/ublock
 
+      - name: Update test-required external assets
+        run: ./scripts/update-assets.sh --group url-shorteners
+
       - name: Analyze and test Flutter application
         working-directory: apps/weblibre
         run: |

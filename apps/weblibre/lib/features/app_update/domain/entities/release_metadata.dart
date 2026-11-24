@@ -34,7 +34,7 @@ part 'release_metadata.g.dart';
 /// The app's shipped UI languages. Release-note summaries in any other
 /// language are dropped (5.2); a test keeps this in step with
 /// `AppLocalizations.supportedLocales`.
-const shippedSummaryLanguages = {'en', 'de', 'es', 'id', 'ru', 'zh'};
+const shippedSummaryLanguages = {'ar', 'en', 'de', 'es', 'id', 'ru', 'zh'};
 
 /// Limits on release-note summaries (5.2).
 const maxSummaryChars = 2000;

@@ -1005,7 +1005,11 @@ void main() {
       await tester.tap(find.text('Large screen').last);
       await tester.pumpAndSettle();
 
-      expect(region(LayoutPart.tabBar), findsOneWidget);
+      final activePreview = find.byType(PreviewWindow).last;
+      expect(
+        find.descendant(of: activePreview, matching: region(LayoutPart.tabBar)),
+        findsOneWidget,
+      );
     });
   });
 }

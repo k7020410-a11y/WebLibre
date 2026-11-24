@@ -143,6 +143,17 @@ class BangDatabase extends $BangDatabase with PrefixQueryBuilderMixin {
       await m.addColumn(schema.bang, schema.bang.searxngApi);
     },
     from3To4: (m, schema) async {
+      // Some v3 databases were created before bang_history carried the
+      // group's composite foreign key. Add the missing column before Drift
+      // rebuilds the table for the v4 search_date type.
+      final historyColumns = await customSelect(
+        'PRAGMA table_info("bang_history")',
+      ).get();
+      if (!historyColumns.any((row) => row.read<String>('name') == 'group')) {
+        await customStatement(
+          'ALTER TABLE "bang_history" ADD COLUMN "group" INTEGER NOT NULL DEFAULT 0',
+        );
+      }
       await m.alterTable(TableMigration(schema.bangHistory));
     },
     from4To5: (m, schema) async {
