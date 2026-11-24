@@ -171,6 +171,16 @@ jobs:
         working-directory: apps/weblibre
         run: flutter gen-l10n
 
+      # These directories are generated later by the asset/component steps, but
+      # Flutter validates every directory declared in pubspec.yaml during analysis.
+      # Create them first on a clean checkout before the real assets are generated.
+      - name: Prepare Flutter asset directories
+        run: |
+          mkdir -p \
+            apps/weblibre/assets/quotes \
+            apps/weblibre/assets/sites \
+            apps/weblibre/assets/ublock
+
       - name: Analyze and test Flutter application
         working-directory: apps/weblibre
         run: |
