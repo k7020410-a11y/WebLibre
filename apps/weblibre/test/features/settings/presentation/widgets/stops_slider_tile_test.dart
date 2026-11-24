@@ -110,8 +110,8 @@ void main() {
     });
 
     test('takes a double with rounding noise as the stop it reads as', () {
-      const factors = [for (var tenth = 5; tenth <= 30; tenth++) tenth / 10];
-      final noisy = 0.5 + 6 * 0.1; // 1.1000000000000001
+      final factors = [for (var tenth = 5; tenth <= 30; tenth++) tenth / 10];
+      const noisy = 0.5 + 6 * 0.1; // 1.1000000000000001
 
       final result = stopsWithValue(factors, noisy);
       expect(result.stops, same(factors));
