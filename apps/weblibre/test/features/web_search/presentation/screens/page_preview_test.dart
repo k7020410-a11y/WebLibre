@@ -71,7 +71,7 @@ void main() {
           iconCacheRevisionProvider.overrideWith((ref, origin) {
             return Stream.value(0);
           }),
-        ),
+        ],
         child: MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
